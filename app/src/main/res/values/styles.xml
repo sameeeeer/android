@@ -1,11 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+        <item name="colorPrimary">@color/colorPrimary</item>// header /tool bar 500/600
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>//status bar change 700 /800
+        <item name="colorAccent">@color/colorAccent</item>//navigation bar colar  same as tool bar
 
+    </style>
+    <style name="FlatButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/button</item>
+
+    </style>
 </resources>

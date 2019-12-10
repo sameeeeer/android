@@ -53,13 +53,9 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_password"
             android:layout_width="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
             android:layout_height="60dp"
             android:layout_below="@id/til_username"
             android:layout_marginLeft="32dp"
@@ -71,9 +67,9 @@
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="60dp"
 
-
+                android:background="@drawable/edittextlayout"
                 android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="20dp"
