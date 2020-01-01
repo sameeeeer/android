@@ -46,4 +46,3 @@ dependencies {
         exclude module: ['exifinterface', 'support-annotations']
     }
 }
-
