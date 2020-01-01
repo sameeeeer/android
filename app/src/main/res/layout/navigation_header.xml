@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:padding="25dp"
+    android:layout_gravity="top"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@drawable/backgroundgradient"
+    >
+<ImageView
+    android:id="@+id/navimage"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:src="@drawable/ic_launcher_foreground"
+    android:scaleType="centerCrop"
+    android:contentDescription="Images"
+    />
+<TextView
+    android:id="@+id/nav_name"
+    android:layout_marginLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Samir karki"
+    android:paddingTop="8dp"
+    android:textColor="#000000"
+    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"/>
+    <TextView
+        android:id="@+id/nav_email"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lastking.me01@gmail.com"
+        android:textColor="#000000"
+        android:paddingTop="2dp"/>
+
+</LinearLayout>

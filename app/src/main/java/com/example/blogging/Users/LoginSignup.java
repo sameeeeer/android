@@ -1,8 +1,8 @@
 package com.example.blogging.Users;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blogging.R;
 
@@ -11,6 +11,6 @@ public class LoginSignup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_signup);
+        setContentView(R.layout.activity_main);
     }
 }
