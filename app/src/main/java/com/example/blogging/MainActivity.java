@@ -1,31 +1,51 @@
 package com.example.blogging;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.blogging.Adapters.LoginRegisterAdapter;
-import com.example.blogging.Fragments.LoginFrag;
-import com.example.blogging.Fragments.RegisterFrag;
-import com.google.android.material.tabs.TabLayout;
+import com.example.blogging.RegisterUi.NameActivity;
 
-public class MainActivity extends AppCompatActivity {
-    ViewPager viewPager;
-    TabLayout tabLayout;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText email, password;
+    Button login, create;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager = findViewById(R.id.vp_viewpager);
-        tabLayout = findViewById(R.id.tb_tabyout);
 
-        LoginRegisterAdapter adapter= new LoginRegisterAdapter(getSupportFragmentManager());
-        adapter.addFragment(new LoginFrag(),"Login");
-        adapter.addFragment(new RegisterFrag(),"Register");
 
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+        email = findViewById(R.id.txtemail);
+        password = findViewById(R.id.txtpswd);
+        login = findViewById(R.id.btnlogin);
+        create = findViewById(R.id.btncreate);
+
+        login.setOnClickListener(this);
+        create.setOnClickListener(this);
+
+
     }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnlogin:
+                break;
+            case R.id.btncreate:
+                Intent intent = new Intent(MainActivity.this, NameActivity.class);
+                startActivity(intent);
+                break;
+
+        }
+    }
+
+
+
+
+
 }
+
