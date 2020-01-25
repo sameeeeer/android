@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText email, password;
     Button login, create;
     String em , pass;
-    private static final String IS_USER_LOGGED_IN = "IS_USER_LOGGED_IN";
-    private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
 
