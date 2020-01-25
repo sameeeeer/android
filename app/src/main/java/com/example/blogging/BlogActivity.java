@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.blogging.APIs.PostApi;
+import com.example.blogging.RetrofitHelper.UserSession;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -33,6 +36,11 @@ import java.io.File;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BlogActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
@@ -41,10 +49,11 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     ImageView choosenimage;
     EditText statuspost;
     Uri uri;
+    PostApi postApi;
     LinearLayout statusbar;
     MultipartBody.Part image;
     Button btnlogout;
-
+    UserSession userSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +72,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         DashboardFragment dashboardFragment = new DashboardFragment();
         setFragment(dashboardFragment);
         btnlogout.setOnClickListener(this);
+        userSession = new UserSession(this);
         imageupload.setOnClickListener(this);
         post.setOnClickListener(this);
     }
@@ -88,7 +98,13 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private void getInstance() {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.2.2:3000/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
 
+        postApi = retrofit.create(PostApi.class);
+
+    }
 
     public void askPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -124,13 +140,27 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void uploadImage(MultipartBody.Part image) {
+        getInstance();
 
         RequestBody postcaption = RequestBody.create(MediaType.parse("text/plain"), statuspost.getText().toString());
         SharedPreferences savedata = BlogActivity.this.getSharedPreferences("User", Context.MODE_PRIVATE);
+        RequestBody name = RequestBody.create(MediaType.parse("text/plain"), userSession.getUser().getFname());
 
+        Call<Void> flagUpload = postApi.createpost(image, postcaption, name);
         System.out.println(image.toString());
 
+        flagUpload.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(BlogActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
 
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.d("Api Ex", t.toString());
+            }
+        });
     }
 
 
@@ -150,6 +180,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                 reload();
                 break;
             case R.id.btnlogout:
+                userSession.endSession();
                 Intent intent1 = new Intent(BlogActivity.this, MainActivity.class);
                 startActivity(intent1);
                 break;

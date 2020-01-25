@@ -7,16 +7,24 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.blogging.Bbl.Userbbl;
+import com.example.blogging.Model.Usermodel;
 import com.example.blogging.RegisterUi.NameActivity;
-
+import com.example.blogging.RetrofitHelper.Helper;
+import com.example.blogging.RetrofitHelper.UserSession;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText email, password;
     Button login, create;
+    Userbbl userbbl;
+    UserSession userSession;
     String em , pass;
+    private static final String IS_USER_LOGGED_IN = "IS_USER_LOGGED_IN";
+    private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
 
@@ -34,12 +42,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login.setOnClickListener(this);
         create.setOnClickListener(this);
 
-
+        userbbl = new Userbbl();
+        userSession=new UserSession(this);
+        if (userSession.isActive()) {
+            navigateDashboard();
+        }
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnlogin:
+                signIn();
                 valdate();
                 break;
             case R.id.btncreate:
@@ -51,6 +64,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void signIn() {
+        Helper.StrictMode();
+        em = email.getText().toString();
+        pass = password.getText().toString();
+        Usermodel userlogin = userbbl.login(em, pass);
+//        Log.d("user",userlogin.getEmail());
+        if (userlogin != null) {
+            userSession.startSession(userlogin);
+            navigateDashboard();
+            Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "password error ", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void navigateDashboard() {
+        Intent intent= new Intent(MainActivity.this, BlogActivity.class);
+        startActivity(intent);
+    }
 
     public  boolean valdate(){
         if (TextUtils.isEmpty(em)){

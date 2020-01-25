@@ -42,7 +42,7 @@ public class Userbbl {
         try {
             Response<UserResponse> loginResponse = loginCall.execute();
             if (!loginResponse.isSuccessful()) {
-             return usermodel;
+                return usermodel;
             } else if (loginResponse.body().getSuccess()!= null) {
                 usermodel = loginResponse.body().getUser();
             }
