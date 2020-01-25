@@ -35,7 +35,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         sharedPreferences = getApplicationContext().getSharedPreferences("Register", 0);
         editor = sharedPreferences.edit();
 
-
+        
 
     }
     private void initToolbar() {
@@ -52,15 +52,15 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         String email=sharedPreferences.getString("regemail",null);
         String password=sharedPreferences.getString("regpass",null);
         String gender=sharedPreferences.getString("reggender",null);
-
+        
         Usermodel usermodel=new Usermodel(fname,lname,email,dob,number,password,gender,"");
-        if(userbbl.register(usermodel)){
+        if(userbbl.register(usermodel)==false){
             Toast.makeText(this, "Register Fail", Toast.LENGTH_SHORT).show();
-
-        }else{
+        }else {
+            Toast.makeText(this, "Succesfull", Toast.LENGTH_SHORT).show();
             Intent intent=new Intent(SignActivity.this,MainActivity.class);
             startActivity(intent);
-
+            Notification.givenotification(SignActivity.this,"Register Successfully");
         }
     }
 

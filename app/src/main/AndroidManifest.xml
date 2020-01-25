@@ -13,12 +13,18 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Blog 4 u"
+        android:label="Blogging"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".RegisterUi.EmailActivity" />
         <activity android:name=".SignActivity" />
+        <activity android:name=".RegisterUi.PassActivity" />
+        <activity android:name=".RegisterUi.NumberActivity" />
+        <activity android:name=".RegisterUi.GenderActivity" />
+        <activity android:name=".RegisterUi.DateActivity" />
+        <activity android:name=".RegisterUi.NameActivity" />
         <activity android:name=".BlogActivity" >
 
         </activity>
