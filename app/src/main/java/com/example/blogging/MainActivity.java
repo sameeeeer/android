@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (userlogin != null) {
             userSession.startSession(userlogin);
             navigateDashboard();
+            Notification.givenotification(MainActivity.this,"Login Successfully");
             Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT).show();
         }
         else {
