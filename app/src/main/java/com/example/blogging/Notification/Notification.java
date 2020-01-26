@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Notification;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.graphics.Color;
 
 import androidx.core.app.NotificationCompat;
+
+import com.example.blogging.R;
+import com.example.blogging.Users.MainActivity;
 
 public class Notification {
 
@@ -37,7 +40,7 @@ public class Notification {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setTicker(context.getString(R.string.app_name)).setWhen(System.currentTimeMillis())
                 .setAutoCancel(true).setContentTitle(context.getString(R.string.app_name))
                 .setContentText(message);

@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Fragment;
 
 
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.Model.Post;
+import com.example.blogging.R;
 import com.example.blogging.adaptor.PostAdaptor;
 
 import java.util.List;

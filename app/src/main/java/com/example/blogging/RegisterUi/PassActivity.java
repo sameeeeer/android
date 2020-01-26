@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blogging.R;
-import com.example.blogging.SignActivity;
+import com.example.blogging.Users.SignActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class PassActivity extends AppCompatActivity implements View.OnClickListener {

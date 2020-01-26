@@ -19,16 +19,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".RegisterUi.EmailActivity" />
-        <activity android:name=".SignActivity" />
+        <activity android:name=".Users.SignActivity" />
         <activity android:name=".RegisterUi.PassActivity" />
         <activity android:name=".RegisterUi.NumberActivity" />
         <activity android:name=".RegisterUi.GenderActivity" />
         <activity android:name=".RegisterUi.DateActivity" />
         <activity android:name=".RegisterUi.NameActivity" />
-        <activity android:name=".BlogActivity" >
+        <activity android:name=".Activities.BlogActivity" >
 
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Users.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

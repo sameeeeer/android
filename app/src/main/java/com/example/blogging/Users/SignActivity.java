@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Users;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.blogging.Bbl.Userbbl;
 import com.example.blogging.Model.Usermodel;
+import com.example.blogging.Notification.Notification;
+import com.example.blogging.R;
 import com.example.blogging.RetrofitHelper.Helper;
 
 
@@ -58,7 +60,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Register Fail", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this, "Succesfull", Toast.LENGTH_SHORT).show();
-            Intent intent=new Intent(SignActivity.this,MainActivity.class);
+            Intent intent=new Intent(SignActivity.this, MainActivity.class);
             startActivity(intent);
             Notification.givenotification(SignActivity.this,"Register Successfully");
         }

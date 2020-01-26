@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Users;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +12,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blogging.Bbl.Userbbl;
+import com.example.blogging.Activities.BlogActivity;
 import com.example.blogging.Model.Usermodel;
+import com.example.blogging.Notification.Notification;
+import com.example.blogging.R;
 import com.example.blogging.RegisterUi.NameActivity;
 import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;

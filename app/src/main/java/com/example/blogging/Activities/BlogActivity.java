@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -27,7 +27,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.blogging.APIs.PostApi;
+import com.example.blogging.Fragment.DashboardFragment;
+import com.example.blogging.R;
 import com.example.blogging.RetrofitHelper.UserSession;
+import com.example.blogging.Users.MainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
