@@ -19,10 +19,12 @@ import com.example.blogging.R;
 import com.example.blogging.RegisterUi.NameActivity;
 import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText email, password;
-    Button login, create;
+    FloatingActionButton login;
+    Button create;
     Userbbl userbbl;
     UserSession userSession;
     String em , pass;

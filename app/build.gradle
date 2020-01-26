@@ -5,11 +5,13 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.blogging"
-        minSdkVersion 16
-        targetSdkVersion 29
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -38,4 +40,3 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
 }
-
