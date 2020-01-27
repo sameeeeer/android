@@ -47,7 +47,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BlogActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    BottomNavigationView home_navigation;
+    BottomNavigationView home_navigation,profile_navigation;
     Button imageupload, post;
     ImageView choosenimage;
     EditText statuspost;
@@ -78,6 +78,13 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         userSession = new UserSession(this);
         imageupload.setOnClickListener(this);
         post.setOnClickListener(this);
+
+        home_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                return false;
+            }
+        });
     }
 
     @Override

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="10dp"
+    android:paddingTop="30dp"
+    android:paddingEnd="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userProfileImg"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/avataaar"
+            app:civ_border_color="#F8F8F8"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.187"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/imgBtnUploadPhoto"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_photo_camera_black_24dp"
+            android:contentDescription="Upload photo"
+            android:src="@drawable/ic_photo_camera_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userProfileImg"
+            app:layout_constraintEnd_toEndOf="@+id/userProfileImg"
+            app:layout_constraintHorizontal_bias="0.847"
+            app:layout_constraintStart_toStartOf="@+id/userProfileImg" />
+
+        <TextView
+            android:id="@+id/txtUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samir Karki"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toEndOf="@+id/userProfileImg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.256"
+            tools:ignore="HardcodedText" />
+
+
+        <TextView
+            android:id="@+id/txtMyBooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="Posted Blog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userProfileImg"
+            app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+            app:layout_constraintVertical_bias="0.112" />
+
+        <TextView
+            android:id="@+id/txtMyBooksValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtMyBooks"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="@+id/txtMyBooks"
+            app:layout_constraintTop_toBottomOf="@+id/txtMyBooks"
+            app:layout_constraintVertical_bias="0.305" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Edit Proile"
+        android:background="@drawable/buttonlayout"
+        style="@style/button"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"/>
+
+
+
+</LinearLayout>
