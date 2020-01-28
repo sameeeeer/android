@@ -44,6 +44,11 @@ public class DashboardFragment extends Fragment {
         getPost();
         return root;
     }
+    public static DashboardFragment newInstance() {
+        DashboardFragment dashFragment = new DashboardFragment();
+        return dashFragment;
+
+    }
 
     private void getInstance() {
         retrofit = new Retrofit.Builder().baseUrl("http://10.0.2.2:3000/")

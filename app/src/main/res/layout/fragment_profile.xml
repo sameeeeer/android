@@ -56,7 +56,7 @@
 
 
         <TextView
-            android:id="@+id/txtMyBooks"
+            android:id="@+id/txtpost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -67,15 +67,15 @@
             app:layout_constraintVertical_bias="0.112" />
 
         <TextView
-            android:id="@+id/txtMyBooksValue"
+            android:id="@+id/txtpostvalue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/txtMyBooks"
+            app:layout_constraintEnd_toEndOf="@+id/txtpost"
             app:layout_constraintHorizontal_bias="0.481"
-            app:layout_constraintStart_toStartOf="@+id/txtMyBooks"
-            app:layout_constraintTop_toBottomOf="@+id/txtMyBooks"
+            app:layout_constraintStart_toStartOf="@+id/txtpost"
+            app:layout_constraintTop_toBottomOf="@+id/txtpost"
             app:layout_constraintVertical_bias="0.305" />
 
 

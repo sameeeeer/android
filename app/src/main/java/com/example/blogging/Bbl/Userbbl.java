@@ -51,6 +51,20 @@ public class Userbbl {
         }
         return usermodel;
     }
+    public Usermodel UserProfile(String id){
+        Usermodel usermodel = null;
+        Call<Usermodel> profilecall = userapi.userProfile(id);
+
+        try {
+            Response<Usermodel> profileResponse = profilecall.execute();
+            if (profileResponse.isSuccessful()) {
+                usermodel = profileResponse.body();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return usermodel;
+    }
 
 
 }

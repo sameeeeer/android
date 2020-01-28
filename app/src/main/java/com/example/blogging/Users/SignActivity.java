@@ -57,6 +57,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         
         Usermodel usermodel=new Usermodel(fname,lname,email,dob,number,password,gender,"");
         if(userbbl.register(usermodel)==false){
+
             Toast.makeText(this, "Register Fail", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this, "Succesfull", Toast.LENGTH_SHORT).show();

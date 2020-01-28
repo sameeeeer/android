@@ -28,6 +28,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.Fragment.DashboardFragment;
+import com.example.blogging.Fragment.UserProfileFragment;
 import com.example.blogging.R;
 import com.example.blogging.RetrofitHelper.UserSession;
 import com.example.blogging.Users.MainActivity;
@@ -47,7 +48,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BlogActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    BottomNavigationView home_navigation,profile_navigation;
+    BottomNavigationView home_navigation, profile_navigation;
     Button imageupload, post;
     ImageView choosenimage;
     EditText statuspost;
@@ -72,19 +73,34 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         choosenimage = findViewById(R.id.image_choose);
         statusbar = findViewById(R.id.status);
 
-        DashboardFragment dashboardFragment = new DashboardFragment();
-        setFragment(dashboardFragment);
+//        final DashboardFragment dashboardFragment = new DashboardFragment();
+//        setFragment(dashboardFragment);
         btnlogout.setOnClickListener(this);
         userSession = new UserSession(this);
         imageupload.setOnClickListener(this);
         post.setOnClickListener(this);
+        loadFragment(DashboardFragment.newInstance());
 
         home_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment activeFragment = null;
+                switch (item.getItemId()) {
+                    case R.id.profile:
+                        activeFragment = UserProfileFragment.newInstance();
+                        break;
+                    case R.id.newsfeed:
+                        activeFragment = DashboardFragment.newInstance();
+                        break;
+                }
+                loadFragment(activeFragment);
                 return false;
             }
         });
+    }
+
+    private void loadFragment(Fragment activeFragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, activeFragment).commit();
     }
 
     @Override
