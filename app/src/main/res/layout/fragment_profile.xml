@@ -54,7 +54,17 @@
             app:layout_constraintVertical_bias="0.256"
             tools:ignore="HardcodedText" />
 
-
+        <TextView
+            android:id="@+id/txtemaill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="lastking.me01@gmail.com"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userProfileImg"
+            app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+            app:layout_constraintVertical_bias="0.112" />
         <TextView
             android:id="@+id/txtpost"
             android:layout_width="wrap_content"
@@ -63,7 +73,7 @@
             android:text="Posted Blog"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/userProfileImg"
-            app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+            app:layout_constraintTop_toBottomOf="@+id/txtemaill"
             app:layout_constraintVertical_bias="0.112" />
 
         <TextView
@@ -91,7 +101,21 @@
         style="@style/button"
         android:textAllCaps="false"
         android:layout_marginTop="10dp"/>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postlist"
+            android:background="#F0f0f0"
+            />
+
+    </FrameLayout>
 
 
 </LinearLayout>

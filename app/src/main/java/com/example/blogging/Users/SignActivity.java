@@ -55,15 +55,16 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         String password=sharedPreferences.getString("regpass",null);
         String gender=sharedPreferences.getString("reggender",null);
         
-        Usermodel usermodel=new Usermodel(fname,lname,email,dob,number,password,gender,"");
+        Usermodel usermodel=new Usermodel(fname,lname,email,dob,number,password,gender,"","");
         if(userbbl.register(usermodel)==false){
-
-            Toast.makeText(this, "Register Fail", Toast.LENGTH_SHORT).show();
-        }else {
             Toast.makeText(this, "Succesfull", Toast.LENGTH_SHORT).show();
             Intent intent=new Intent(SignActivity.this, MainActivity.class);
             startActivity(intent);
             Notification.givenotification(SignActivity.this,"Register Successfully");
+
+
+        }else {
+            Toast.makeText(this, "Register Fail", Toast.LENGTH_SHORT).show();
         }
     }
 

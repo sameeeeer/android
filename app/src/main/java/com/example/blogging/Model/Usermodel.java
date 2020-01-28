@@ -1,9 +1,9 @@
 package com.example.blogging.Model;
 
 public class Usermodel {
-    private String fname,lname,email,dob,number,password,gender,token,_id;
+    private String fname,lname,email,dob,number,password,gender,images,token,_id;
 
-    public Usermodel(String fname, String lname, String email, String dob, String number, String password, String gender, String token) {
+    public Usermodel(String fname, String lname, String email, String dob, String number, String password, String gender, String images, String token) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -11,6 +11,7 @@ public class Usermodel {
         this.number = number;
         this.password = password;
         this.gender = gender;
+        this.images = images;
         this.token = token;
     }
 
@@ -41,6 +42,8 @@ public class Usermodel {
     public String getGender() {
         return gender;
     }
+
+    public String getImages(){return images;}
 
     public String get_id() {
         return _id;

@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Users.EdituserActivity"></activity>
         <activity android:name=".RegisterUi.EmailActivity" />
         <activity android:name=".Users.SignActivity" />
         <activity android:name=".RegisterUi.PassActivity" />

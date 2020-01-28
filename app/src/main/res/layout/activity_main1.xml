@@ -62,22 +62,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:rowCount="1"
-        android:columnCount="3"
+        android:columnCount="1"
         android:layout_below="@id/status"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:id="@+id/button_layout">
-        <Button
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Live"
-            android:layout_columnWeight="1"
-            android:textAllCaps="false"
-            android:drawableTint="#e74c3c"
-            android:drawableLeft="@drawable/ic_live_news"
-            />
+        android:id="@+id/button_layout"
+        android:visibility="gone">
         <Button
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
@@ -88,16 +79,7 @@
             android:id="@+id/image_upload"
             android:drawableLeft="@drawable/ic_hobbies_and_free_time"
             />
-        <Button
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTint="#e84393"
-            android:layout_columnWeight="1"
-            android:text="Check In"
-            android:textAllCaps="false"
-            android:drawableLeft="@drawable/ic_documents_check_interface_symbol_of_text_lines_in_rounded_square"
-            />
+
     </GridLayout>
     <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_below="@+id/button_layout"

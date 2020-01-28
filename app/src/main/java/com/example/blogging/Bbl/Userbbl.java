@@ -1,5 +1,7 @@
 package com.example.blogging.Bbl;
 
+import android.util.Log;
+
 import com.example.blogging.APIs.UserAPIs;
 import com.example.blogging.Model.Usermodel;
 import com.example.blogging.Responseapi.UserResponse;
@@ -7,11 +9,13 @@ import com.example.blogging.RetrofitHelper.Helper;
 
 import java.io.IOException;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Response;
 
 public class Userbbl {
     private UserAPIs userapi;
+
 
     public Userbbl() {
 
@@ -65,6 +69,16 @@ public class Userbbl {
         }
         return usermodel;
     }
-
+    public void updateProfilePicture(MultipartBody.Part img, String authHeader, String id){
+        Call<Void> userCall = userapi.updateProfilePicture(img, authHeader, id);
+        try {
+            Response<Void> response = userCall.execute();
+            if(response.isSuccessful()){
+                Log.d("res", ""+response.body());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 }

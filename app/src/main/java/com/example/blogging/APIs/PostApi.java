@@ -2,6 +2,7 @@ package com.example.blogging.APIs;
 
 
 import com.example.blogging.Model.Post;
+import com.example.blogging.Model.Usermodel;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface PostApi {
     @GET("findpost")
@@ -22,7 +24,9 @@ public interface PostApi {
     @POST("createpost")
     Call<Void> createpost(@Part MultipartBody.Part img, @Part("status") RequestBody status, @Part("name") RequestBody name); //image file data type MultipartBody
 
-
+    @Multipart
+    @POST("upload/{id}")
+    Call<Usermodel> uploadphoto(@Part MultipartBody.Part img, @Path("id") String id);
 
 
 }

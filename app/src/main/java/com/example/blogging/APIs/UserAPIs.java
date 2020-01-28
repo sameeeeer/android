@@ -3,12 +3,17 @@ package com.example.blogging.APIs;
 import com.example.blogging.Model.Usermodel;
 import com.example.blogging.Responseapi.UserResponse;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface UserAPIs {
@@ -22,5 +27,9 @@ public interface UserAPIs {
     @GET("profile/{id}")
     Call<Usermodel> userProfile(@Path("id") String id);
 
+    //route to update profile picture
+    @Multipart //for image
+    @PUT("/users/{id}/photo/upload")
+    Call<Void> updateProfilePicture(@Part MultipartBody.Part img, @Header("Authorization") String authHeader, @Path("id") String id);
 
 }

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -58,6 +59,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     MultipartBody.Part image;
     Button btnlogout;
     UserSession userSession;
+    GridLayout button_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         btnlogout = findViewById(R.id.btnlogout);
         choosenimage = findViewById(R.id.image_choose);
         statusbar = findViewById(R.id.status);
+        button_layout = findViewById(R.id.button_layout);
 
 //        final DashboardFragment dashboardFragment = new DashboardFragment();
 //        setFragment(dashboardFragment);
@@ -88,9 +91,14 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                 switch (item.getItemId()) {
                     case R.id.profile:
                         activeFragment = UserProfileFragment.newInstance();
+                        button_layout.setVisibility(View.GONE);
+
+
                         break;
                     case R.id.newsfeed:
                         activeFragment = DashboardFragment.newInstance();
+                        button_layout.setVisibility(View.VISIBLE);
+
                         break;
                 }
                 loadFragment(activeFragment);
