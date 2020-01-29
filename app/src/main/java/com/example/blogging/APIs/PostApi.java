@@ -10,6 +10,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -30,7 +31,9 @@ public interface PostApi {
     @PUT("upload/{id}")
     Call<Usermodel> uploadphoto(@Part MultipartBody.Part img, @Path("id") String id);
 
-  @GET("findpostbyuserid/{id}")
-    Call<List<PostResponse>> getuserpost(@Part("id") String id);
+    @GET("findpostbyuserid/{id}")
+    Call<List<PostResponse>> getuserpost(@Path("id") String id);
+
+    @DELETE("")
 
 }

@@ -9,7 +9,7 @@
     <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:id="@+id/post_box"
+        android:id="@+id/post_box1"
         android:layout_height="wrap_content"
         tools:context=".controller.fragment.Home_Fragment">
         <de.hdodenhof.circleimageview.CircleImageView
@@ -31,21 +31,14 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/post_profileimg1"/>
         <TextView
+            android:id="@+id/cata1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3hr"
-            android:textSize="12dp"
-            android:textColor="#95989A"
-            android:layout_marginTop="28dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/post_profileimg1"/>
-        <TextView
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/public_icon"
+            android:text="Category"
             android:backgroundTint="#95989A"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="75dp"/>
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@id/post_profileimg1"/>
         <Button
             android:layout_width="32dp"
             android:layout_height="32dp"

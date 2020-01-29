@@ -15,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
 import android.util.Log;
@@ -30,6 +32,7 @@ import android.widget.Toolbar;
 
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.Activities.BlogActivity;
+import com.example.blogging.Bbl.PostBbl;
 import com.example.blogging.Bbl.Userbbl;
 import com.example.blogging.Model.Usermodel;
 import com.example.blogging.R;
@@ -38,6 +41,8 @@ import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
 import com.example.blogging.Users.EdituserActivity;
 import com.example.blogging.Users.MainActivity;
+import com.example.blogging.adaptor.PostAdaptor;
+import com.example.blogging.adaptor.PostOfuser;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -62,6 +67,8 @@ public class UserProfileFragment extends Fragment {
     Uri uri;
     MultipartBody.Part image;
     Usermodel usermodel;
+    RecyclerView postbyuser;
+    PostBbl postBbl = new PostBbl();
 
     public UserProfileFragment() {
         // Required empty public constructor
@@ -83,7 +90,13 @@ public class UserProfileFragment extends Fragment {
         txtusername = view.findViewById(R.id.txtUserName);
         update = view.findViewById(R.id.btnEditProfile);
         txtemaill = view.findViewById(R.id.txtemaill);
+        postbyuser=view.findViewById(R.id.postlist);
         UserProfile();
+
+        PostOfuser adapter = new PostOfuser(postBbl.findpostbyuser(userSession.getUser().get_id()),getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        postbyuser.setLayoutManager(layoutManager);
+        postbyuser.setAdapter(adapter);
         profbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,6 +219,8 @@ public class UserProfileFragment extends Fragment {
             }
         });
     }
+
+
 
 
 

@@ -47,7 +47,16 @@ public class PostBbl {
         Call<List<PostResponse>> listcall = postApi.getuserpost(id);
         Helper.StrictMode();
         try{
+            Response<List<PostResponse>> postresponse = listcall.execute();
+            if(postresponse.isSuccessful()){
+                userpostlist = postresponse.body();
 
+            }
+
+
+        }catch(IOException e){
+            System.out.println(e);
         }
+            return userpostlist;
     }
 }
