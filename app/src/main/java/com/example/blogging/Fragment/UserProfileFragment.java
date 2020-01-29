@@ -2,6 +2,7 @@ package com.example.blogging.Fragment;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -27,6 +28,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.blogging.APIs.PostApi;
+import com.example.blogging.Activities.BlogActivity;
 import com.example.blogging.Bbl.Userbbl;
 import com.example.blogging.Model.Usermodel;
 import com.example.blogging.R;
@@ -58,6 +61,7 @@ public class UserProfileFragment extends Fragment {
     Userbbl userbbl;
     Uri uri;
     MultipartBody.Part image;
+    Usermodel usermodel;
 
     public UserProfileFragment() {
         // Required empty public constructor
@@ -94,6 +98,7 @@ public class UserProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity().getApplication(), EdituserActivity.class);
+                intent.putExtra("Id",usermodel.get_id());
                 startActivity(intent);
             }
         });
@@ -104,13 +109,13 @@ public class UserProfileFragment extends Fragment {
         Helper.StrictMode();
         String id=userSession.getUser().get_id();
         userbbl = new Userbbl();
-        Usermodel usermodel = userbbl.UserProfile(id);
+        usermodel = userbbl.UserProfile(id);
         txtusername.setText(usermodel.getFname()+" "+usermodel.getLname());
         txtemaill.setText(usermodel.getEmail());
 
         Toast.makeText(getContext(), ""+usermodel.getImages(), Toast.LENGTH_SHORT).show();
 
-        if(usermodel.getImages().isEmpty()){
+        if(usermodel.getImages()==null){
             Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
         } else {
             Picasso.with(getContext()).load(Helper.IMAGE_URL + usermodel.getImages()).into(userimg);
@@ -120,8 +125,6 @@ public class UserProfileFragment extends Fragment {
 
     public static UserProfileFragment newInstance() {
         UserProfileFragment profileFragment = new UserProfileFragment();
-
-
         return profileFragment;
 
     }
@@ -154,6 +157,7 @@ public class UserProfileFragment extends Fragment {
                     1);
         } else {
             getImgReady();
+            uploadImage();
         }
     }
 
@@ -162,6 +166,7 @@ public class UserProfileFragment extends Fragment {
         if(requestCode == 1){
             if(grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
                 getImgReady();
+                uploadImage();
             }
             else {
                 Toast.makeText(getContext(), "No Permission", Toast.LENGTH_SHORT).show();
@@ -184,7 +189,23 @@ public class UserProfileFragment extends Fragment {
                 file.getName(),requestBody);
     }
 
+    private void uploadImage() {
+        PostApi postApi = Helper.getInstance().create(PostApi.class);
+        Call<Usermodel> flagUpload = postApi.uploadphoto(image, userSession.getUser().get_id());
+        System.out.println(image.toString());
 
+        flagUpload.enqueue(new Callback<Usermodel>() {
+            @Override
+            public void onResponse(Call<Usermodel> call, Response<Usermodel> response) {
+                Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Usermodel> call, Throwable t) {
+                Log.d("myex", t.getMessage());
+            }
+        });
+    }
 
 
 

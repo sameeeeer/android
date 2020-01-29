@@ -32,4 +32,22 @@ public interface UserAPIs {
     @PUT("/users/{id}/photo/upload")
     Call<Void> updateProfilePicture(@Part MultipartBody.Part img, @Header("Authorization") String authHeader, @Path("id") String id);
 
+    @FormUrlEncoded
+    @PUT("users/updates")
+    Call<String> updates(@Field("_id") String id,
+                              @Field("token") String token,
+                              @Field("fname") String fname,
+                              @Field("lname") String lname,
+                              @Field("number") String number,
+                              @Field("dob") String dob,
+                              @Field("email") String email,
+                         @Field("password") String password
+
+    );
+    @FormUrlEncoded
+    @POST("users/profile")
+    Call<Usermodel> loadprofile(@Field("_id") String id,
+                                @Field("token") String token,
+                                @Field("fname") String fname,
+                                @Field("lname") String lname);
 }

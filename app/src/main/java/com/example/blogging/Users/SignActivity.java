@@ -29,7 +29,6 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
-        initToolbar();
         userbbl=new Userbbl();
         btnsign=findViewById(R.id.btnsignup);
         btnsign.setOnClickListener(this);
@@ -40,11 +39,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         
 
     }
-    private void initToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Terms & Privacy");
-    }
+
     public void signup(){
         Helper.StrictMode();
         String fname=sharedPreferences.getString("regfname",null);
