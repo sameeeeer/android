@@ -15,6 +15,16 @@ public class Usermodel {
         this.token = token;
     }
 
+    public Usermodel(String fname, String lname, String email, String dob, String number, String password) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.dob = dob;
+        this.number = number;
+        this.password = password;
+    }
+
+
     public String getFname() {
         return fname;
     }

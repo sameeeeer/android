@@ -1,5 +1,6 @@
 package com.example.blogging.Bbl;
 
+import android.os.StrictMode;
 import android.util.Log;
 
 import com.example.blogging.APIs.UserAPIs;
@@ -79,6 +80,28 @@ public class Userbbl {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public boolean updateProfile(Usermodel usermodel,String id){
+        boolean isUpdatesuccess = false;
+        Call<Void> userCall = userapi.updateProfile(id,usermodel);
+        Helper.StrictMode();
+        try{
+            Response<Void> checkresponse  = userCall.execute();
+            System.out.println(checkresponse.isSuccessful());
+            if (checkresponse.isSuccessful()){
+                isUpdatesuccess = true;
+
+            }
+            else{
+                isUpdatesuccess=false;
+            }
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+
+        return isUpdatesuccess;
     }
 
 }
