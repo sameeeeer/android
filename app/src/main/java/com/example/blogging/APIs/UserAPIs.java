@@ -29,7 +29,7 @@ public interface UserAPIs {
 
     //route to update profile picture
     @Multipart //for image
-    @PUT("/users/{id}/photo/upload")
+    @PUT("upload/{id}")
     Call<Void> updateProfilePicture(@Part MultipartBody.Part img, @Header("Authorization") String authHeader, @Path("id") String id);
 
    @PUT("updates/{id}")

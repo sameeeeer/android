@@ -7,18 +7,14 @@
         />
     <item
         android:id="@+id/friends"
-        android:title="Friends"
-        android:icon="@drawable/ic_friends"
+        android:title="Post"
+        android:icon="@drawable/ic_add_box_black_24dp"
         />
     <item
         android:id="@+id/profile"
         android:title="Profile"
         android:icon="@drawable/ic_user"
         />
-    <item
-        android:id="@+id/notification"
-        android:title="Notification"
-        android:icon="@drawable/ic_notification"
-        />
+
 
 </menu>

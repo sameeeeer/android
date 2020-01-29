@@ -33,6 +33,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:hint="Category"
+            android:id="@+id/category"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:hint="What's on your mind"
             android:id="@+id/statustext"
             />
@@ -52,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:text="Post"
                 android:id="@+id/post"
-                android:layout_marginLeft="100dp"
+                android:background="@drawable/buttonlay"
+                android:layout_marginLeft="160dp"
                 android:layout_marginTop="30dp"
                 style="@style/button"/>
         </LinearLayout>

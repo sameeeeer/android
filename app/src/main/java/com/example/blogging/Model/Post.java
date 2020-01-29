@@ -1,17 +1,23 @@
 package com.example.blogging.Model;
 
 public class Post {
-    String _id, status, image, name;
+    String _id, user_id, status, image, name, category;
 
-    public Post(String status, String image, String name) {
+    public Post(String status,String image, String name, String category) {
 
+        this.user_id = user_id;
         this.status = status;
         this.image = image;
         this.name = name;
+        this.category = category;
     }
 
     public String get_id() {
         return _id;
+    }
+
+    public String getUser_id() {
+        return user_id;
     }
 
     public String getStatus() {
@@ -24,5 +30,9 @@ public class Post {
 
     public String getName() {
         return name;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }

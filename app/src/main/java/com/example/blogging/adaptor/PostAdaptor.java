@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.blogging.Model.Post;
+import com.example.blogging.Model.PostResponse;
 import com.example.blogging.R;
 import com.squareup.picasso.Picasso;
 
@@ -21,10 +22,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
 
-    List<Post> postlist;
+    List<PostResponse> postlist;
     Context context;
 
-    public PostAdaptor(List<Post> postlist , Context context) {
+    public PostAdaptor(List<PostResponse> postlist , Context context) {
         this.context = context;
         this.postlist = postlist;
     }
@@ -39,10 +40,12 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull PostHolder holder, int position) {
-        final Post post = (Post) postlist.get(position);
+        final PostResponse post = postlist.get(position);
 
         holder.postcaption.setText(post.getStatus());
-        holder.profilename.setText(post.getName());
+        holder.profilename.setText(post.getUser_id().getFname()+" " + post.getUser_id().getLname());
+        holder.category.setText(post.getCategory());
+
         Picasso.with(context).load("http://10.0.2.2:3000/image/"+ post.getImage()).into(holder.postimage);
         Picasso.with(context).load("http://10.0.2.2:3000/image/"+ post.getImage()).into(holder.profilepic);
 
@@ -56,8 +59,9 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
     public class PostHolder extends RecyclerView.ViewHolder{
         CircleImageView profilepic;
         ImageView postimage;
-        TextView postcaption,profilename;
+        TextView postcaption,profilename,category;
         RelativeLayout postbox;
+
 
 
 
@@ -68,6 +72,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
             postimage = itemView.findViewById(R.id.post_image);
             profilepic= itemView.findViewById(R.id.post_profileimg);
             postbox = itemView.findViewById(R.id.post_box);
+            category = itemView.findViewById(R.id.cata);
         }
     }
 }

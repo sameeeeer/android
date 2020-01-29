@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.Model.Post;
+import com.example.blogging.Model.PostResponse;
 import com.example.blogging.R;
 import com.example.blogging.adaptor.PostAdaptor;
 
@@ -61,12 +62,12 @@ public class DashboardFragment extends Fragment {
     private void getPost(){
         getInstance();
 
-        Call<List<Post>> postCall = postApi.getPost();
+        Call<List<PostResponse>> postCall = postApi.getPost();
 
-        postCall.enqueue(new Callback<List<Post>>() {
+        postCall.enqueue(new Callback<List<PostResponse>>() {
             @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                List<Post> postlist = response.body();
+            public void onResponse(Call<List<PostResponse>> call, Response<List<PostResponse>> response) {
+                List<PostResponse> postlist = response.body();
                 PostAdaptor adapter = new PostAdaptor(postlist,getContext());
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
                 postview.setLayoutManager(layoutManager);
@@ -78,7 +79,7 @@ public class DashboardFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
+            public void onFailure(Call<List<PostResponse>> call, Throwable t) {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -28,15 +28,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.blogging.APIs.PostApi;
+import com.example.blogging.Bbl.PostBbl;
+import com.example.blogging.Bbl.Userbbl;
 import com.example.blogging.Fragment.DashboardFragment;
 import com.example.blogging.Fragment.UserProfileFragment;
 import com.example.blogging.R;
+import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
 import com.example.blogging.Users.MainActivity;
+import com.example.blogging.adaptor.PostAdaptor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.File;
+import java.io.IOException;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -52,7 +57,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     BottomNavigationView home_navigation, profile_navigation;
     Button imageupload, post;
     ImageView choosenimage;
-    EditText statuspost;
+    EditText category,statuspost;
     Uri uri;
     PostApi postApi;
     LinearLayout statusbar;
@@ -60,7 +65,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     Button btnlogout;
     UserSession userSession;
     GridLayout button_layout;
-
+    PostBbl postBbl = new PostBbl();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +74,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
 
         home_navigation = findViewById(R.id.homeNavigation);
         imageupload = findViewById(R.id.image_upload);
+        category = findViewById(R.id.category);
         statuspost = findViewById(R.id.statustext);
         post = findViewById(R.id.post);
         btnlogout = findViewById(R.id.btnlogout);
@@ -173,29 +179,8 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         image = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
     }
 
-    private void uploadImage(MultipartBody.Part image) {
-        getInstance();
 
-        RequestBody postcaption = RequestBody.create(MediaType.parse("text/plain"), statuspost.getText().toString());
-        SharedPreferences savedata = BlogActivity.this.getSharedPreferences("User", Context.MODE_PRIVATE);
-        RequestBody name = RequestBody.create(MediaType.parse("text/plain"), userSession.getUser().getFname());
 
-        Call<Void> flagUpload = postApi.createpost(image, postcaption, name);
-        System.out.println(image.toString());
-
-        flagUpload.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(BlogActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Log.d("Api Ex", t.toString());
-            }
-        });
-    }
 
 
     @Override
@@ -210,7 +195,8 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.post:
-                uploadImage(image);
+                postBbl.uploadImage(image,statuspost.getText().toString(),BlogActivity.this,category.getText().toString());
+                Toast.makeText(this, "Your post created", Toast.LENGTH_SHORT).show();
                 reload();
                 break;
             case R.id.btnlogout:
