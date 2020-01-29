@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.APIs.UserAPIs;
+import com.example.blogging.Model.Post;
 import com.example.blogging.Model.PostResponse;
+import com.example.blogging.Model.Usermodel;
 import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
 
@@ -58,5 +60,26 @@ public class PostBbl {
             System.out.println(e);
         }
             return userpostlist;
+    }
+
+    public boolean deletepost(String id){
+        boolean isUpdatesuccess = false;
+        Call<Void> deletecall = postApi.deletepost(id);
+        Helper.StrictMode();
+        try{
+            Response<Void> deleteresponse  = deletecall.execute();
+            if (deleteresponse.isSuccessful()){
+                isUpdatesuccess = true;
+
+            }
+            else{
+                isUpdatesuccess=false;
+            }
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+
+        return isUpdatesuccess;
     }
 }

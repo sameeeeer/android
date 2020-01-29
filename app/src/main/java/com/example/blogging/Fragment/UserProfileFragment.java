@@ -70,6 +70,7 @@ public class UserProfileFragment extends Fragment {
     RecyclerView postbyuser;
     PostBbl postBbl = new PostBbl();
 
+
     public UserProfileFragment() {
         // Required empty public constructor
     }
@@ -77,6 +78,8 @@ public class UserProfileFragment extends Fragment {
         super.onCreate(savedInstanceState);
         userSession = new UserSession(getActivity());
         userbbl = new Userbbl();
+
+
     }
 
     @Override
@@ -91,9 +94,12 @@ public class UserProfileFragment extends Fragment {
         update = view.findViewById(R.id.btnEditProfile);
         txtemaill = view.findViewById(R.id.txtemaill);
         postbyuser=view.findViewById(R.id.postlist);
+
+
+
         UserProfile();
 
-        PostOfuser adapter = new PostOfuser(postBbl.findpostbyuser(userSession.getUser().get_id()),getContext());
+        PostOfuser adapter = new PostOfuser(postBbl.findpostbyuser(userSession.getUser().get_id()),getContext(),UserProfileFragment.this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         postbyuser.setLayoutManager(layoutManager);
         postbyuser.setAdapter(adapter);
@@ -118,6 +124,8 @@ public class UserProfileFragment extends Fragment {
         return view;
 
     }
+
+
     public  void UserProfile() {
         Helper.StrictMode();
         String id=userSession.getUser().get_id();

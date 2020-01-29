@@ -34,6 +34,7 @@ public interface PostApi {
     @GET("findpostbyuserid/{id}")
     Call<List<PostResponse>> getuserpost(@Path("id") String id);
 
-    @DELETE("")
+    @DELETE("deletepost/{id}")
+    Call<Void> deletepost(@Path("id") String id);
 
 }
