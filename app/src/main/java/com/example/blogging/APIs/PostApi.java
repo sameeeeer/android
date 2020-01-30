@@ -10,6 +10,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -36,5 +37,11 @@ public interface PostApi {
 
     @DELETE("deletepost/{id}")
     Call<Void> deletepost(@Path("id") String id);
+
+    @PUT("postupdate/{id}")
+    Call<Void>updatepost(@Path("id") String id, @Body Post post);
+
+    @GET("findpostById/{id}")
+    Call<Post> findpost(@Path("id") String id);
 
 }
