@@ -55,9 +55,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BlogActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     BottomNavigationView home_navigation, profile_navigation;
-    Button imageupload, post;
+    Button imageupload, post, comment;
     ImageView choosenimage;
-    EditText category,statuspost;
+    EditText category, statuspost;
     Uri uri;
     PostApi postApi;
     LinearLayout statusbar;
@@ -66,6 +66,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     UserSession userSession;
     GridLayout button_layout;
     PostBbl postBbl = new PostBbl();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +82,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         choosenimage = findViewById(R.id.image_choose);
         statusbar = findViewById(R.id.status);
         button_layout = findViewById(R.id.button_layout);
+        comment = findViewById(R.id.commenton);
 
 //        final DashboardFragment dashboardFragment = new DashboardFragment();
 //        setFragment(dashboardFragment);
@@ -89,6 +91,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         imageupload.setOnClickListener(this);
         post.setOnClickListener(this);
         loadFragment(DashboardFragment.newInstance());
+        comment.setOnClickListener(this);
 
         home_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -180,9 +183,6 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -195,7 +195,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.post:
-                postBbl.uploadImage(image,statuspost.getText().toString(),BlogActivity.this,category.getText().toString());
+                postBbl.uploadImage(image, statuspost.getText().toString(), BlogActivity.this, category.getText().toString());
                 Toast.makeText(this, "Your post created", Toast.LENGTH_SHORT).show();
                 reload();
                 break;
@@ -204,6 +204,14 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent1 = new Intent(BlogActivity.this, MainActivity.class);
                 startActivity(intent1);
                 break;
+
+
+            case R.id.commenton:
+                Intent intent2 = new Intent(BlogActivity.this, CommentActivity.class);
+                startActivity(intent2);
+                break;
+
+
 
         }
     }
