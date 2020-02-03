@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.APIs.UserAPIs;
+import com.example.blogging.Model.Post;
 import com.example.blogging.Model.PostResponse;
+import com.example.blogging.Model.Usermodel;
 import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
 
@@ -58,5 +60,65 @@ public class PostBbl {
             System.out.println(e);
         }
             return userpostlist;
+    }
+
+
+    public boolean deletepost(String id){
+        boolean isUpdatesuccess = false;
+        Call<Void> deletecall = postApi.deletepost(id);
+        Helper.StrictMode();
+        try{
+            Response<Void> deleteresponse  = deletecall.execute();
+            if (deleteresponse.isSuccessful()){
+                isUpdatesuccess = true;
+
+            }
+            else{
+                isUpdatesuccess=false;
+            }
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+
+        return isUpdatesuccess;
+    }
+
+    public boolean updatepost(String id,Post post){
+        System.out.println(id);
+        boolean isUpdatesuccess = false;
+        Call<Void> updatecall = postApi.updatepost(id,post);
+        Helper.StrictMode();
+        try{
+            Response<Void> updateresponse  = updatecall.execute();
+            System.out.println(updateresponse.isSuccessful());
+            if (updateresponse.isSuccessful()){
+                isUpdatesuccess = true;
+
+            }
+            else{
+                isUpdatesuccess=false;
+            }
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+
+        return isUpdatesuccess;
+    }
+
+    public Post findpost(String id){
+        Post post = null;
+        Call<Post> findcall = postApi.findpost(id);
+
+        try {
+            Response<Post> profileResponse = findcall.execute();
+            if (profileResponse.isSuccessful()) {
+                post = profileResponse.body();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return post;
     }
 }

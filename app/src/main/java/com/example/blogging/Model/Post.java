@@ -12,6 +12,11 @@ public class Post {
         this.category = category;
     }
 
+    public Post(String status, String category) {
+        this.status = status;
+        this.category = category;
+    }
+
     public String get_id() {
         return _id;
     }
