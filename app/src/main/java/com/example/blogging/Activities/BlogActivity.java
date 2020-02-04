@@ -55,7 +55,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BlogActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     BottomNavigationView home_navigation, profile_navigation;
-    Button imageupload, post, comment;
+    Button imageupload, post;
     ImageView choosenimage;
     EditText category, statuspost;
     Uri uri;
@@ -82,7 +82,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         choosenimage = findViewById(R.id.image_choose);
         statusbar = findViewById(R.id.status);
         button_layout = findViewById(R.id.button_layout);
-        comment = findViewById(R.id.commenton);
+//        comment = findViewById(R.id.commenton);
 
 //        final DashboardFragment dashboardFragment = new DashboardFragment();
 //        setFragment(dashboardFragment);
@@ -91,7 +91,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         imageupload.setOnClickListener(this);
         post.setOnClickListener(this);
         loadFragment(DashboardFragment.newInstance());
-        comment.setOnClickListener(this);
+//        comment.setOnClickListener(this);
 
         home_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
