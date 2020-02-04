@@ -32,6 +32,7 @@ import com.example.blogging.Bbl.PostBbl;
 import com.example.blogging.Bbl.Userbbl;
 import com.example.blogging.Fragment.DashboardFragment;
 import com.example.blogging.Fragment.UserProfileFragment;
+import com.example.blogging.Notification.Notification;
 import com.example.blogging.R;
 import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
@@ -196,6 +197,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.post:
                 postBbl.uploadImage(image, statuspost.getText().toString(), BlogActivity.this, category.getText().toString());
+                Notification.givenotification(BlogActivity.this,"Blog posted Successfully");
                 Toast.makeText(this, "Your post created", Toast.LENGTH_SHORT).show();
                 reload();
                 break;
