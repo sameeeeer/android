@@ -19,16 +19,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SensorActivity">
+        <activity android:name=".Sensors.sensorActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".splashactivity">
+        <activity android:name=".Sensors.SensorActivity">
 
         </activity>
+        <activity android:name=".splashactivity"></activity>
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.EditPostActivity" />
         <activity android:name=".Users.EdituserActivity" />
@@ -41,11 +42,13 @@
         <activity android:name=".RegisterUi.NameActivity" />
         <activity android:name=".Activities.BlogActivity" />
         <activity android:name=".Users.MainActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

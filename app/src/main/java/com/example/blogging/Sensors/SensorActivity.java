@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.blogging.R;
 
 public class SensorActivity extends AppCompatActivity {
     SensorManager sensorManager;
