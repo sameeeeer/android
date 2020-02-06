@@ -25,16 +25,31 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
+        <activity
+            android:name=".Users.MainActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Sensors.sensorActivity2" />
         <activity android:name=".Sensors.SensorActivity" />
         <activity android:name=".splashactivity">
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
 
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
         </activity>
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.EditPostActivity" />
@@ -47,7 +62,7 @@
         <activity android:name=".RegisterUi.DateActivity" />
         <activity android:name=".RegisterUi.NameActivity" />
         <activity android:name=".Activities.BlogActivity" />
-        <activity android:name=".Users.MainActivity">
+        <activity android:name=".MapsActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

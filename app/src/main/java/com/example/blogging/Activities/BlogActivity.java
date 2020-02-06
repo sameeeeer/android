@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.blogging.APIs.PostApi;
 import com.example.blogging.Bbl.PostBbl;
 import com.example.blogging.Bbl.Userbbl;
+import com.example.blogging.Fragment.AboutusFragment;
 import com.example.blogging.Fragment.DashboardFragment;
 import com.example.blogging.Fragment.UserProfileFragment;
 import com.example.blogging.Notification.Notification;
@@ -107,6 +108,10 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                     case R.id.newsfeed:
                         activeFragment = DashboardFragment.newInstance();
                         button_layout.setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.aboutus:
+                        activeFragment = AboutusFragment.newInstance();
+                        button_layout.setVisibility(View.GONE);
                         break;
                 }
                 loadFragment(activeFragment);

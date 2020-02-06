@@ -53,7 +53,7 @@ public class Userbbl {
             Response<UserResponse> loginResponse = loginCall.execute();
             if (!loginResponse.isSuccessful()) {
              return usermodel;
-            } else if (loginResponse.body().getSuccess()!= null) {
+            } else if (loginResponse.body().getSuccess().equals("true")) {
                 usermodel = loginResponse.body().getUser();
             }
         } catch (IOException e) {

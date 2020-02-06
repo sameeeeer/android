@@ -35,8 +35,9 @@
                 android:text="Update"
                 android:id="@+id/Update"
                 android:background="@drawable/buttonlay"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="30dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10sp"
+                android:layout_marginBottom="10sp"
                 style="@style/button"/>
         </LinearLayout>
 
