@@ -56,7 +56,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BlogActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     BottomNavigationView home_navigation, profile_navigation;
-    Button imageupload, post;
+    Button imageupload, post, comment;
     ImageView choosenimage;
     EditText category, statuspost;
     Uri uri;
@@ -92,7 +92,6 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         imageupload.setOnClickListener(this);
         post.setOnClickListener(this);
         loadFragment(DashboardFragment.newInstance());
-//        comment.setOnClickListener(this);
 
         home_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -108,7 +107,6 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                     case R.id.newsfeed:
                         activeFragment = DashboardFragment.newInstance();
                         button_layout.setVisibility(View.VISIBLE);
-
                         break;
                 }
                 loadFragment(activeFragment);
@@ -197,7 +195,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.post:
                 postBbl.uploadImage(image, statuspost.getText().toString(), BlogActivity.this, category.getText().toString());
-                Notification.givenotification(BlogActivity.this,"Blog posted Successfully");
+                Notification.givenotification(BlogActivity.this, "Blog posted Successfully");
                 Toast.makeText(this, "Your post created", Toast.LENGTH_SHORT).show();
                 reload();
                 break;
@@ -209,10 +207,8 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
 
 
             case R.id.commenton:
-                Intent intent2 = new Intent(BlogActivity.this, CommentActivity.class);
-                startActivity(intent2);
-                break;
 
+                break;
 
 
         }

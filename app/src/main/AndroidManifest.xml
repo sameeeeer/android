@@ -4,7 +4,12 @@
     package="com.example.blogging">
 
     <uses-sdk tools:overrideLibrary="android.support.v17.leanback" />
-
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,17 +24,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Sensors.sensorActivity2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Sensors.SensorActivity">
 
+        <activity android:name=".Sensors.sensorActivity2" />
+        <activity android:name=".Sensors.SensorActivity" />
+        <activity android:name=".splashactivity">
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
-        <activity android:name=".splashactivity"></activity>
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.EditPostActivity" />
         <activity android:name=".Users.EdituserActivity" />

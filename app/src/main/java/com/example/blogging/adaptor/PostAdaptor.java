@@ -1,9 +1,11 @@
 package com.example.blogging.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.blogging.Activities.CommentActivity;
 import com.example.blogging.Model.Post;
 import com.example.blogging.Model.PostResponse;
 import com.example.blogging.R;
@@ -20,12 +23,12 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
+public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder> {
 
     List<PostResponse> postlist;
     Context context;
 
-    public PostAdaptor(List<PostResponse> postlist , Context context) {
+    public PostAdaptor(List<PostResponse> postlist, Context context) {
         this.context = context;
         this.postlist = postlist;
     }
@@ -33,7 +36,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
     @NonNull
     @Override
     public PostHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.blog, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.blog, parent, false);
         PostHolder postHolder = new PostHolder(view);
         return postHolder;
     }
@@ -43,11 +46,19 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
         final PostResponse post = postlist.get(position);
 
         holder.postcaption.setText(post.getStatus());
-        holder.profilename.setText(post.getUser_id().getFname()+" " + post.getUser_id().getLname());
+        holder.profilename.setText(post.getUser_id().getFname() + " " + post.getUser_id().getLname());
         holder.category.setText(post.getCategory());
+        holder.comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("postid", post.get_id());
+                context.startActivity(intent);
+            }
+        });
 
-        Picasso.with(context).load("http://10.0.2.2:3000/image/"+ post.getImage()).into(holder.postimage);
-        Picasso.with(context).load("http://10.0.2.2:3000/image/"+ post.getImage()).into(holder.profilepic);
+        Picasso.with(context).load("http://10.0.2.2:3000/image/" + post.getImage()).into(holder.postimage);
+        Picasso.with(context).load("http://10.0.2.2:3000/image/" + post.getImage()).into(holder.profilepic);
 
     }
 
@@ -56,23 +67,23 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder>{
         return postlist.size();
     }
 
-    public class PostHolder extends RecyclerView.ViewHolder{
+    public class PostHolder extends RecyclerView.ViewHolder {
         CircleImageView profilepic;
         ImageView postimage;
-        TextView postcaption,profilename,category;
+        TextView postcaption, profilename, category;
         RelativeLayout postbox;
+        Button comment;
 
 
-
-
-        public PostHolder(@NonNull View itemView) {
+        public PostHolder(@NonNull final View itemView) {
             super(itemView);
-            profilename=itemView.findViewById(R.id.profile_name);
+            profilename = itemView.findViewById(R.id.profile_name);
             postcaption = itemView.findViewById(R.id.post_caption);
             postimage = itemView.findViewById(R.id.post_image);
-            profilepic= itemView.findViewById(R.id.post_profileimg);
+            profilepic = itemView.findViewById(R.id.post_profileimg);
             postbox = itemView.findViewById(R.id.post_box);
             category = itemView.findViewById(R.id.cata);
+            comment = itemView.findViewById(R.id.commenton);
         }
     }
 }

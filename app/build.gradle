@@ -39,4 +39,7 @@ dependencies {
     // http logger
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 }

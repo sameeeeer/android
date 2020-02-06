@@ -6,15 +6,16 @@
         android:icon="@drawable/ic_home_black_24dp"
         />
     <item
-        android:id="@+id/friends"
-        android:title="Post"
-        android:icon="@drawable/ic_add_box_black_24dp"
-        />
-    <item
         android:id="@+id/profile"
         android:title="Profile"
         android:icon="@drawable/ic_user"
         />
+    <item
+        android:id="@+id/aboutus"
+        android:title="About us"
+        android:icon="@drawable/ic_add_box_black_24dp"
+        />
+
 
 
 </menu>
