@@ -57,6 +57,47 @@ public class UnitTests {
         Assert.assertNull(user);
     }
 
+    @Test
+    public void testSignUp_InvalidDetails_ShouldNotRegister() {
+        String fname = "samir";
+        String lname = "Karki";
+        String email = "sameer@gmail.com";
+        String dob = "12-12-1997";
+        String number = "987453210";
+        String password = "sam00sau35";
+
+        Usermodel newUser = new Usermodel(fname,lname,email,dob,number,password);
+        boolean register = userbbl.register(newUser);
+        assertFalse(register);
+
+    }
+    @Test
+    public void testSignUp_ValidDetails_ShouldRegisterANewUser() {
+        String fname = "sameeer";
+        String lname = "karki";
+        String email = "unit@test.com";
+        String dob = "1990/6/25";
+        String number = "9863014568";
+        String password = "sam00sau35";
+
+        Usermodel newUser = new Usermodel(fname, lname, email, dob, number,password);
+        boolean register = userbbl.register(newUser);
+        assertNotNull(register);
+
+    }
+
+//
+//    @Test
+//    public void testAuthToken() {
+//
+//        String email = "las@gmail.com";
+//        String password = "12345";
+//
+//        Usermodel userResponse = userbbl.login(email,password);
+//        Helper.Token = userResponse.getToken();
+//        assertThat(Helper.Token, IsNot.N());
+//
+//    }
 
 
 
