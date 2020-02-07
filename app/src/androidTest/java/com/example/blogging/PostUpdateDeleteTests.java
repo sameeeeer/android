@@ -15,7 +15,7 @@ public class PostUpdateDeleteTests {
 
     @Before
     public void setupHomeFragement(){
-        testRule.getActivity().getSupportFragmentManager().beginTransaction();
+
     }
 
     @Test
