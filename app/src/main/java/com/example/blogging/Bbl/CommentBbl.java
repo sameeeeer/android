@@ -4,10 +4,12 @@ package com.example.blogging.Bbl;
 import android.content.Context;
 
 import com.example.blogging.APIs.CommentApi;
+import com.example.blogging.Model.CommentResponse;
 import com.example.blogging.RetrofitHelper.Helper;
 import com.example.blogging.RetrofitHelper.UserSession;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -53,6 +55,25 @@ public class CommentBbl {
             System.out.println(e);
         }
         return postcomment;
+    }
+
+
+    public List<CommentResponse> findcommentbyId(String id){
+        List<CommentResponse> commentpostlist = null;
+        Call<List<CommentResponse>> listcall = commentApi.commentpost(id);
+        Helper.StrictMode();
+        try{
+            Response<List<CommentResponse>> commentResponse = listcall.execute();
+            if(commentResponse.isSuccessful()){
+                commentpostlist = commentResponse.body();
+
+            }
+
+
+        }catch(IOException e){
+            System.out.println(e);
+        }
+        return commentpostlist;
     }
 }
 
