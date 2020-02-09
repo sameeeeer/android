@@ -42,7 +42,7 @@ public class CommentAdaptor extends RecyclerView.Adapter <CommentAdaptor.Comment
         final CommentResponse comment = commentlist.get(position);
         holder.commentname.setText(comment.getUser_id().getFname()+" " + comment.getUser_id().getLname());
         holder.commentpost.setText(comment.getComment());
-        Picasso.with(context).load("http://10.0.2.2:3000/image/" + comment.getImage()).into(holder.profilepic);
+        Picasso.with(context).load("http://10.0.2.2:3000/image/" + comment.getUser_id().getImages()).into(holder.profilepic);
     }
 
     @Override

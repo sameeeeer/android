@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Activities;
 
 
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.blogging.R;
 import com.example.blogging.Users.MainActivity;
 
 public class splashactivity extends AppCompatActivity {

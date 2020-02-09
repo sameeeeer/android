@@ -1,10 +1,12 @@
-package com.example.blogging;
+package com.example.blogging.Activities;
 
 import androidx.fragment.app.FragmentActivity;
 
 import android.location.Location;
 import android.os.Bundle;
 
+import com.example.blogging.Model.Place;
+import com.example.blogging.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;

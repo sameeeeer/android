@@ -6,6 +6,7 @@
     <uses-sdk tools:overrideLibrary="android.support.v17.leanback" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -48,7 +49,7 @@
         </activity>
         <activity android:name=".Sensors.sensorActivity2" />
         <activity android:name=".Sensors.SensorActivity" />
-        <activity android:name=".splashactivity"></activity>
+        <activity android:name=".Activities.splashactivity"></activity>
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.EditPostActivity" />
         <activity android:name=".Users.EdituserActivity" />
@@ -60,7 +61,7 @@
         <activity android:name=".RegisterUi.DateActivity" />
         <activity android:name=".RegisterUi.NameActivity" />
         <activity android:name=".Activities.BlogActivity" />
-        <activity android:name=".MapsActivity">
+        <activity android:name=".Activities.MapsActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

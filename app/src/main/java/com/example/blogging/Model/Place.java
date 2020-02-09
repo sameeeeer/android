@@ -1,4 +1,4 @@
-package com.example.blogging;
+package com.example.blogging.Model;
 
 public class Place {
     private double lat;

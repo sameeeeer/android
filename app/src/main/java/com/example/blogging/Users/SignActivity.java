@@ -1,8 +1,11 @@
 package com.example.blogging.Users;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -56,6 +59,15 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent=new Intent(SignActivity.this, MainActivity.class);
             startActivity(intent);
             Notification.givenotification(SignActivity.this,"Register Successfully");
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            long[] mVibratePattern = new long[]{0, 400, 200,400};
+            if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+                v.vibrate(mVibratePattern,-1);
+
+            }
+            else{
+                v.vibrate(mVibratePattern,-1);
+            }
 
 
         }else {

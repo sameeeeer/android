@@ -1,8 +1,11 @@
 package com.example.blogging.Users;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -79,6 +82,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             userSession.startSession(userlogin);
             navigateDashboard();
             Notification.givenotification(MainActivity.this,"Login Successfully");
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            long[] mVibratePattern = new long[]{0, 400, 200,400};
+            if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+                v.vibrate(mVibratePattern,-1);
+
+            }
+            else{
+                v.vibrate(mVibratePattern,-1);
+            }
+
+
             Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT).show();
         }
         else {
