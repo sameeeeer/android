@@ -18,6 +18,7 @@ public class Helper {
 //    public static final String IMAGE_URL = "http://10.0.2.2:3000/image/";
     private static final String BASE_URL = "http://10.0.2.2:3000/";
     public static final String IMAGE_URL = "http://10.0.2.2:3000/image/";
+
 public static String Token = "Bearer ";
 
     public static Retrofit getInstance() {

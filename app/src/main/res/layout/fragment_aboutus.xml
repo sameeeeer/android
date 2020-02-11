@@ -1,59 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    android:orientation="vertical"
+    tools:context=".Fragment.AboutusFragment">
 
-    <Button
-        android:id="@+id/buttton2"
-        android:layout_width="wrap_content"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="224dp"
-        android:text="Button"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="1.0"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="97dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="87dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginBottom="625dp"
+        android:padding="8dp"
         android:text="About Us"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.0"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent"
-        map:layout_constraintVertical_bias="0.0" />
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="354dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:text="Blog for you.. we the one that gives you a way to post "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        android:textSize="12dp" />
 
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.114"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toBottomOf="@+id/textView"
-        map:layout_constraintVertical_bias="0.0" />
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

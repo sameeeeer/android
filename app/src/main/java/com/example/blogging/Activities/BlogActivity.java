@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -68,6 +72,10 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
     UserSession userSession;
     GridLayout button_layout;
     PostBbl postBbl = new PostBbl();
+
+    private SensorManager manager;
+    private Sensor sensor;
+    private com.example.eventscheduler.Sensor.ShakeDetector mShakeDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +126,9 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                 return false;
             }
         });
+
     }
+
 
     private void loadFragment(Fragment activeFragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, activeFragment).commit();

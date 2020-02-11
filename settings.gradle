@@ -1,2 +1,2 @@
-include ':app', ':mywearapplication', ':mywearapplication2'
+include ':app', ':mywearapplication', ':mywearapplication2', ':myapplication', ':wearable'
 rootProject.name='Blogging'

@@ -35,25 +35,29 @@ public class UnitTests {
     private PostBbl postBbl;
 
     @Before
-    public void setup(){
+    public void setup() {
         userbbl = new Userbbl();
     }
-    public void setPostBble(){postBbl = new PostBbl();}
+
+    public void setPostBble() {
+        postBbl = new PostBbl();
+    }
 
     @Test
     public void testLogin_validDetails() {
         String email = "las@gmail.com";
         String password = "12345";
 
-        Usermodel user = userbbl.login(email,password);
+        Usermodel user = userbbl.login(email, password);
         Assert.assertNotNull(user);
     }
+
     @Test
     public void testLogin_InvalidDetails() {
         String email = "kekkk@gmail.com";
         String password = "12345";
 
-        Usermodel user = userbbl.login(email,password);
+        Usermodel user = userbbl.login(email, password);
         Assert.assertNull(user);
     }
 
@@ -66,11 +70,12 @@ public class UnitTests {
         String number = "987453210";
         String password = "sam00sau35";
 
-        Usermodel newUser = new Usermodel(fname,lname,email,dob,number,password);
+        Usermodel newUser = new Usermodel(fname, lname, email, dob, number, password);
         boolean register = userbbl.register(newUser);
         assertFalse(register);
 
     }
+
     @Test
     public void testSignUp_ValidDetails_ShouldRegisterANewUser() {
         String fname = "sameeer";
@@ -80,13 +85,13 @@ public class UnitTests {
         String number = "9863014568";
         String password = "sam00sau35";
 
-        Usermodel newUser = new Usermodel(fname, lname, email, dob, number,password);
+        Usermodel newUser = new Usermodel(fname, lname, email, dob, number, password);
         boolean register = userbbl.register(newUser);
         assertNotNull(register);
 
     }
 
-//
+
 //    @Test
 //    public void testAuthToken() {
 //
@@ -95,12 +100,12 @@ public class UnitTests {
 //
 //        Usermodel userResponse = userbbl.login(email,password);
 //        Helper.Token = userResponse.getToken();
-//        assertThat(Helper.Token, IsNot.N());
+//        assertThat(Helper.Token, IsNot.notNullValue());
 //
 //    }
-
-
-
-    }
-
+//
+//
+//
+//    }
+}
 
