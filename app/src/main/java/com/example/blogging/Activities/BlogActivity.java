@@ -92,10 +92,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
         choosenimage = findViewById(R.id.image_choose);
         statusbar = findViewById(R.id.status);
         button_layout = findViewById(R.id.button_layout);
-//        comment = findViewById(R.id.commenton);
 
-//        final DashboardFragment dashboardFragment = new DashboardFragment();
-//        setFragment(dashboardFragment);
         btnlogout.setOnClickListener(this);
         userSession = new UserSession(this);
         imageupload.setOnClickListener(this);
