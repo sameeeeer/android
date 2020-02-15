@@ -91,6 +91,7 @@
                 android:textAllCaps="false"
                 android:drawableLeft="@drawable/ic_chat"
                 />
+
         </GridLayout>
 
     </LinearLayout>

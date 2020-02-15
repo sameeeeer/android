@@ -6,10 +6,6 @@
     android:orientation="vertical"
     tools:context=".Fragment.AboutusFragment">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -24,7 +20,59 @@
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        android:text="We provide you a platfrom to bring your inner desire, wish, the thing which you cannot speak, bring out infront of others. Blogging for you is for you where you just need to register your account, sign though it and enjoy watching other blog, post and leave your comments. Click the picture, think a  best status and post it. But remember you also need to you follow our protocol too."
         android:textSize="12dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="We provide you a platfrom to bring your inner desire, wish, the thing which you cannot speak, bring out infront of others. Blogging for you is for you where you just need to register your account, sign though it and enjoy watching other blog, post and leave your comments. Click the picture, think a  best status and post it. But remember you also need to you follow our protocol too."
+        android:textSize="12dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Contact Us"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="phone number"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/button"
+        android:text="+9779810482737"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Email Id"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/button"
+        android:text="blogforyou@gmail.com"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+
 
 </LinearLayout>

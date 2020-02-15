@@ -75,7 +75,7 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
 
     private SensorManager manager;
     private Sensor sensor;
-    private com.example.eventscheduler.Sensor.ShakeDetector mShakeDetector;
+    private com.example.blogging.Sensors.ShakeDetector mShakeDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +118,10 @@ public class BlogActivity extends AppCompatActivity implements NavigationView.On
                         activeFragment = AboutusFragment.newInstance();
                         button_layout.setVisibility(View.GONE);
                         break;
+
+
+
+
                 }
                 loadFragment(activeFragment);
                 return false;

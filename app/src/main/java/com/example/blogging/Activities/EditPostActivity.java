@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.blogging.Bbl.PostBbl;
 import com.example.blogging.Model.Post;
 import com.example.blogging.R;
-import com.example.eventscheduler.Sensor.ShakeDetector;
+import com.example.blogging.Sensors.ShakeDetector;
 
 public class EditPostActivity extends AppCompatActivity {
 EditText txtcate, txtdesc;

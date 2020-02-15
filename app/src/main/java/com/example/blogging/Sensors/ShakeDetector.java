@@ -1,4 +1,4 @@
-package com.example.eventscheduler.Sensor;
+package com.example.blogging.Sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

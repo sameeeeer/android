@@ -45,7 +45,7 @@ public class UnitTests {
 
     @Test
     public void testLogin_validDetails() {
-        String email = "las@gmail.com";
+        String email = "sameer@gmail.com";
         String password = "12345";
 
         Usermodel user = userbbl.login(email, password);
@@ -65,7 +65,7 @@ public class UnitTests {
     public void testSignUp_InvalidDetails_ShouldNotRegister() {
         String fname = "samir";
         String lname = "Karki";
-        String email = "sameer@gmail.com";
+        String email = "sameesdfghjklkjhgf";
         String dob = "12-12-1997";
         String number = "987453210";
         String password = "sam00sau35";
@@ -91,21 +91,5 @@ public class UnitTests {
 
     }
 
-
-//    @Test
-//    public void testAuthToken() {
-//
-//        String email = "las@gmail.com";
-//        String password = "12345";
-//
-//        Usermodel userResponse = userbbl.login(email,password);
-//        Helper.Token = userResponse.getToken();
-//        assertThat(Helper.Token, IsNot.notNullValue());
-//
-//    }
-//
-//
-//
-//    }
 }
 

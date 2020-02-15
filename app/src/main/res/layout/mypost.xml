@@ -100,6 +100,7 @@
                 android:textAllCaps="false"
                 android:drawableLeft="@drawable/ic_update_black_24dp"
                 />
+
         </GridLayout>
 
     </LinearLayout>
