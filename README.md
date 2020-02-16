@@ -19,7 +19,8 @@ Features
 •	User can add post with status and category.
 •	Users can add comment on the post of other users.
 •	Users are able to update their profile details.
-•	Users are able to delete their posts.
+•	Users are able to update and delete their posts.
+• Users can see the Company details, location and contact details.
 
 YouTube and Backend link
 The backend which is being used in this project is given in following link;
