@@ -1,7 +1,7 @@
 package com.example.blogging.Model;
 
 public class CommentResponse {
-    String _id, comment;
+    String _id, comment,image;
     Usermodel user_id;
     Post post_id;
 
@@ -9,6 +9,7 @@ public class CommentResponse {
         this._id = _id;
         this.comment = comment;
         this.user_id = user_id;
+        this.image = image;
         this.post_id = post_id;
     }
 
@@ -26,5 +27,9 @@ public class CommentResponse {
 
     public Post getPost_id() {
         return post_id;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

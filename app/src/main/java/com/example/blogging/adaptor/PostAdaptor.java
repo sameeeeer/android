@@ -58,7 +58,8 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.PostHolder> {
         });
 
         Picasso.with(context).load("http://10.0.2.2:3000/image/" + post.getImage()).into(holder.postimage);
-        Picasso.with(context).load("http://10.0.2.2:3000/image/" + post.getImage()).into(holder.profilepic);
+
+        Picasso.with(context).load("http://10.0.2.2:3000/image/" + post.getUser_id().getImages()).into(holder.profilepic);
 
     }
 

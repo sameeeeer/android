@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.blogging.Bbl.CommentBbl;
 import com.example.blogging.Model.Comment;
+import com.example.blogging.Model.CommentResponse;
 import com.example.blogging.Model.Post;
 import com.example.blogging.R;
 import com.example.blogging.RetrofitHelper.UserSession;
@@ -30,6 +31,7 @@ public class CommentActivity extends AppCompatActivity {
     List<Comment> commentList;
     String postid;
     Context context;
+    Post post;
     UserSession userSession;
 
 
@@ -46,6 +48,13 @@ public class CommentActivity extends AppCompatActivity {
 
         commentrec.setLayoutManager(new LinearLayoutManager(this));
         commentBbl = new CommentBbl();
+        getcomment();
+
+//        CommentAdaptor adapter = new CommentAdaptor(commentBbl.findcommentbyId(post.get_id()),CommentActivity.this);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((this));
+//        commentrec.setLayoutManager(layoutManager);
+//        commentrec.setAdapter(adapter);
+
 
         postcomment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +66,28 @@ public class CommentActivity extends AppCompatActivity {
                 if (commentBbl.commentpost( userid,postid,comment)) {
                     Toast.makeText(CommentActivity.this, "Comment Added", Toast.LENGTH_SHORT).show();
                 }
+                reload();
+
 
             }
         });
+
+
+    }
+    private void getcomment(){
+        CommentBbl commentBbl = new CommentBbl();
+        List<CommentResponse> commentlist = commentBbl.findcommentbyId(postid);
+        CommentAdaptor commentAdaptor = new CommentAdaptor(commentlist, CommentActivity.this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        commentrec.setLayoutManager(layoutManager);
+        commentrec.setAdapter(commentAdaptor);
+    }
+    public void reload(){
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 }

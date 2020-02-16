@@ -4,13 +4,15 @@
     package="com.example.blogging">
 
     <uses-sdk tools:overrideLibrary="android.support.v17.leanback" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -24,7 +26,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -37,19 +38,15 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".Users.MainActivity"
-            >
+        <activity android:name=".Users.MainActivity"></activity>
+        <activity android:name=".Sensors.sensorActivity2" />
+        <activity android:name=".Sensors.SensorActivity" />
+        <activity android:name=".Activities.splashactivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Sensors.sensorActivity2" />
-        <activity android:name=".Sensors.SensorActivity" />
-        <activity android:name=".splashactivity">
-
         </activity>
         <activity android:name=".Activities.CommentActivity" />
         <activity android:name=".Activities.EditPostActivity" />
@@ -62,7 +59,7 @@
         <activity android:name=".RegisterUi.DateActivity" />
         <activity android:name=".RegisterUi.NameActivity" />
         <activity android:name=".Activities.BlogActivity" />
-        <activity android:name=".MapsActivity">
+        <activity android:name=".Activities.MapsActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

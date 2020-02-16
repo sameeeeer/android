@@ -17,6 +17,10 @@ public class Post {
         this.category = category;
     }
 
+    public Post() {
+
+    }
+
     public String get_id() {
         return _id;
     }
